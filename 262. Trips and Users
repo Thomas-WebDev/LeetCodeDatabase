@@ -1,1 +1,19 @@
-262. Trips and Users
+# 262. Trips and Users
+
+# Calulate number of canceled requests made by unbanned users by the total number of requests made by unbanned users
+
+# Logic chain is...
+# Get number of canceled requests made by unbanned users
+#  if the driver is not banned
+#   if Request_at BETWEEN "2013-10-01" AND "2013-10-03"
+#    if status does not equal ENUM 'completed'
+# Get total number of requests made by unbanned users
+
+SELECT
+    Trips.Request_at As Day,
+    round (SUM(IF(status != 'completed', 1, 0)) / SUM(1), 2) AS 'Cancellation Rate'  
+FROM Trips 
+JOIN Users ON Trips.Client_Id = Users.Users_Id
+WHERE Users.Banned = "No"
+      AND Trips.Request_at BETWEEN "2013-10-01" AND "2013-10-03"
+GROUP BY Trips.Request_at

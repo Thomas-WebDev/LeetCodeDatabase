@@ -4,3 +4,7 @@ I will probably back track and write them up in MS SQL and maybe as Oracle queri
 My advise is not to look at these if you have not solved the problems first. 
 
 You get a lot more out of it if you work through the logic on your own and these logic puzzles are fun.
+
+My LeetCode is...
+
+https://leetcode.com/Kkehoe/
